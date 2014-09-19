@@ -24,4 +24,9 @@ public class ItemList {
 			
 	}
 
+	public Item selectItem() {
+		int index = (int) (itemList.size() * Math.random());
+		return itemList.get(index);
+	}
+
 }
