@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class ArchiveActivity extends Activity {
 
@@ -19,6 +20,10 @@ public class ArchiveActivity extends Activity {
 		getMenuInflater().inflate(R.menu.archive, menu);
 		return true;
 	}
+	
+	 public void emailMenuFlash(MenuItem menu){
+	    Toast.makeText(this, "E-Mail", Toast.LENGTH_SHORT).show();
+	 }
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {

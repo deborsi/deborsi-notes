@@ -45,6 +45,9 @@ public class MainActivity extends Activity {
     
     public void emailMenuFlash(MenuItem menu){
     	Toast.makeText(this, "E-Mail", Toast.LENGTH_SHORT).show();
+    }
+    public void emailOptionsMenuFlash(MenuItem menu){
+    	Toast.makeText(this, "E-Mail", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(MainActivity.this, EmailActivity.class);
     	startActivity(intent);
     }
