@@ -24,9 +24,21 @@ public class ItemList {
 			
 	}
 
-	public Item selectItem() {
+	public Item selectItem() throws EmptyItemListException {
+		int size = itemList.size();
+		if  (size <= 0){
+			throw new EmptyItemListException();
+		}
 		int index = (int) (itemList.size() * Math.random());
 		return itemList.get(index);
+	}
+
+	public int size() {
+		return itemList.size();
+	}
+	
+	public boolean contains(Item testItem) {
+		return itemList.contains(testItem);
 	}
 
 }
