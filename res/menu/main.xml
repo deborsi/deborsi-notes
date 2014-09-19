@@ -2,10 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="ca.ualberta.cs.deborsi_notes.MainActivity" >
 
-    <item
+    <item android:id="@+id/emailMenuItem" android:title="Email" android:onClick="emailMenuFlash"></item><item android:id="@+id/archiveFolderMenuItem" android:title="Archive Folder" android:onClick="archiveMenuFlash"></item><item android:id="@+id/summaryMenuItem" android:title="Summary" android:onClick="summaryMenuFlash"></item><item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
+    
+    
+    
 
 </menu>

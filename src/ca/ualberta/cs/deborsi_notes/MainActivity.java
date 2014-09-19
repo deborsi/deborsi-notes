@@ -20,9 +20,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 package ca.ualberta.cs.deborsi_notes;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -39,6 +41,20 @@ public class MainActivity extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+    
+    public void emailMenuFlash(MenuItem menu){
+    	Toast.makeText(this, "E-Mail", Toast.LENGTH_SHORT).show();
+    	Intent intent = new Intent(MainActivity.this, EmailActivity.class);
+    	startActivity(intent);
+    }
+    public void archiveMenuFlash(MenuItem menu){
+    	Toast.makeText(this, "Archives", Toast.LENGTH_SHORT).show();
+    	Intent intent = new Intent(MainActivity.this, ArchiveActivity.class);
+    	startActivity(intent);
+    }
+    public void summaryMenuFlash(MenuItem menu){
+    	Toast.makeText(this, "Summary", Toast.LENGTH_SHORT).show();
     }
 
     @Override
