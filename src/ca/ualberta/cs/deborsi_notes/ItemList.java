@@ -6,9 +6,11 @@ import java.util.Collection;
 public class ItemList {
 	
 	protected ArrayList<Item>itemList;
+	protected ArrayList<Listener> listeners;
 	
 	public ItemList(){
 		itemList = new ArrayList<Item>();
+		listeners = new ArrayList<Listener>();
 	}
 
 	public Collection<Item> getItems() {
@@ -16,12 +18,20 @@ public class ItemList {
 	}
 
 	public void addItem(Item testItem) {
-		itemList.add(testItem);		
+		itemList.add(testItem);	
+		notifyListeners();
+	}
+
+	private void notifyListeners() {
+		for (Listener listener : listeners){
+			listener.update();
+		}
+		
 	}
 
 	public void removeItem(Item testItem) {
 		itemList.remove(testItem);
-			
+		notifyListeners();
 	}
 
 	public Item selectItem() throws EmptyItemListException {
@@ -39,6 +49,14 @@ public class ItemList {
 	
 	public boolean contains(Item testItem) {
 		return itemList.contains(testItem);
+	}
+
+	public void addListener(Listener l) {
+		listeners.add(l);
+	}
+
+	public void removeListener(Listener l) {
+		listeners.remove(l);		
 	}
 
 }

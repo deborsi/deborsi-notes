@@ -19,13 +19,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 package ca.ualberta.cs.deborsi_notes;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 
@@ -35,8 +42,37 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+        ListView listView = (ListView) findViewById(R.id.itemList);
+        Collection<Item>items = ItemListController.getItemList().getItems();
+        final ArrayList<Item> list = new ArrayList<Item>(items);
+        final ArrayAdapter<Item>itemAdapter = new ArrayAdapter<Item>(this, android.R.layout.simple_list_item_1, list);
+        listView.setAdapter(itemAdapter);
+        
+        // Added an observer
+        ItemListController.getItemList().addListener(new Listener() {
+			
+			@Override
+			public void update() {
+				list.clear();
+				Collection<Item>items = ItemListController.getItemList().getItems();
+				list.addAll(items);
+				itemAdapter.notifyDataSetChanged();
+			}
+		});
+        
+        listView.setOnItemLongClickListener(new OnItemLongClickListener() {
 
+			@Override
+			public boolean onItemLongClick(AdapterView<?> adapterView, View view,
+					int position, long id) {
+				Toast.makeText(MainActivity.this, "Delete "+list.get(position).toString(),Toast.LENGTH_SHORT).show();
+				Item item = list.get(position);
+				ItemListController.getItemList().removeItem(item);
+				return false;
+			}
+		});
+        
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,25 +84,32 @@ public class MainActivity extends Activity {
     public void emailMenuFlash(MenuItem menu){
     	Toast.makeText(this, "E-Mail", Toast.LENGTH_SHORT).show();
     }
+    
     public void emailOptionsMenuFlash(MenuItem menu){
     	Toast.makeText(this, "E-Mail", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(MainActivity.this, EmailActivity.class);
     	startActivity(intent);
     }
+    
     public void archiveMenuFlash(MenuItem menu){
     	Toast.makeText(this, "Archives", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(MainActivity.this, ArchiveActivity.class);
     	startActivity(intent);
     }
+    
     public void summaryMenuFlash(MenuItem menu){
     	Toast.makeText(this, "Summary", Toast.LENGTH_SHORT).show();
     }
+    
     public void removeItemMain(View v){
     	Toast.makeText(this, "Item Removed!", Toast.LENGTH_SHORT).show();
     	
     	
     	
+    	
+    	
     }
+    
     public void archiveItemMain(View v){
     	Toast.makeText(this, "Item Added to Archives!", Toast.LENGTH_SHORT).show();
         
@@ -75,21 +118,13 @@ public class MainActivity extends Activity {
     	
     	
     }
+    
     public void addItemMain(View v){
     	Toast.makeText(this, "New Item Added!", Toast.LENGTH_SHORT).show();
         ItemListController it = new ItemListController();
         EditText textView = (EditText) findViewById(R.id.addItemField);
         it.addItem(new Item(textView.getText().toString()));
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 public class ArchiveActivity extends Activity {
@@ -24,6 +25,22 @@ public class ArchiveActivity extends Activity {
 	 public void emailMenuFlash(MenuItem menu){
 	    Toast.makeText(this, "E-Mail", Toast.LENGTH_SHORT).show();
 	 }
+	 
+	 public void removeItemArchive(View v){
+	    Toast.makeText(this, "Archived Item Removed!", Toast.LENGTH_SHORT).show();
+	    	
+	    
+	    
+	 }
+	 
+	 public void unarchiveItemArchive(View v){
+		 Toast.makeText(this, "Item UnArchived!", Toast.LENGTH_SHORT).show();
+		 
+	 
+	 
+	 }
+	    
+	 
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {

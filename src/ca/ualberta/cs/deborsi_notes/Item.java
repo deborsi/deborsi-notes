@@ -11,5 +11,8 @@ public class Item {
 	public String getItem() {
 		return itemName;
 	}
-
+	
+	public String toString(){
+		return getItem();
+	}
 }
