@@ -24,6 +24,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 
@@ -59,7 +61,36 @@ public class MainActivity extends Activity {
     public void summaryMenuFlash(MenuItem menu){
     	Toast.makeText(this, "Summary", Toast.LENGTH_SHORT).show();
     }
-
+    public void removeItemMain(View v){
+    	Toast.makeText(this, "Item Removed!", Toast.LENGTH_SHORT).show();
+    	
+    	
+    	
+    }
+    public void archiveItemMain(View v){
+    	Toast.makeText(this, "Item Added to Archives!", Toast.LENGTH_SHORT).show();
+        
+    	
+    	
+    	
+    	
+    }
+    public void addItemMain(View v){
+    	Toast.makeText(this, "New Item Added!", Toast.LENGTH_SHORT).show();
+        ItemListController it = new ItemListController();
+        EditText textView = (EditText) findViewById(R.id.addItemField);
+        it.addItem(new Item(textView.getText().toString()));
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
