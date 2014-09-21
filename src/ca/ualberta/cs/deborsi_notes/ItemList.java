@@ -1,16 +1,30 @@
 package ca.ualberta.cs.deborsi_notes;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class ItemList {
+public class ItemList implements Serializable {
 	
-	protected ArrayList<Item>itemList;
-	protected ArrayList<Listener> listeners;
+	/**
+	 * ItemList Serialization ID
+	 */
+	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 6673446047991058932L;
+	protected ArrayList<Item>itemList = null;
+	protected transient ArrayList<Listener> listeners = null;
 	
 	public ItemList(){
 		itemList = new ArrayList<Item>();
 		listeners = new ArrayList<Listener>();
+	}
+	
+	private ArrayList<Listener>getListeners(){
+		if (listeners == null){
+			listeners = new ArrayList<Listener>();
+		}
+		return listeners;
 	}
 
 	public Collection<Item> getItems() {
@@ -23,12 +37,11 @@ public class ItemList {
 	}
 
 	private void notifyListeners() {
-		for (Listener listener : listeners){
+		for (Listener listener : getListeners()){
 			listener.update();
 		}
-		
 	}
-
+	
 	public void removeItem(Item testItem) {
 		itemList.remove(testItem);
 		notifyListeners();
@@ -52,11 +65,11 @@ public class ItemList {
 	}
 
 	public void addListener(Listener l) {
-		listeners.add(l);
+		getListeners().add(l);
 	}
 
 	public void removeListener(Listener l) {
-		listeners.remove(l);		
+		getListeners().remove(l);		
 	}
 
 }

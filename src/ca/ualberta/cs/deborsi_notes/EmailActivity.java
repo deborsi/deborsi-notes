@@ -12,6 +12,9 @@ public class EmailActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_email);
+		
+		ItemListManager.initManager(this.getApplicationContext());
+		
 	}
 
 	@Override

@@ -13,6 +13,9 @@ public class ArchiveActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_archive);
+		
+		ItemListManager.initManager(this.getApplicationContext());
+		
 	}
 
 	@Override

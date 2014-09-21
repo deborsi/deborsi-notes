@@ -45,11 +45,17 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        ItemListManager.initManager(this.getApplicationContext());
+        
         ListView listView = (ListView) findViewById(R.id.itemList);
         Collection<Item>items = ItemListController.getItemList().getItems();
         final ArrayList<Item> list = new ArrayList<Item>(items);
         final ArrayAdapter<Item>itemAdapter = new ArrayAdapter<Item>(this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(itemAdapter);
+        
+        ItemListManager.initManager(this.getApplicationContext());
+          
         
         // Added an observer
         ItemListController.getItemList().addListener(new Listener() {
