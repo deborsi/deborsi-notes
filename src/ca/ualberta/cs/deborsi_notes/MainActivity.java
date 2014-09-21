@@ -23,6 +23,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -65,9 +68,23 @@ public class MainActivity extends Activity {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> adapterView, View view,
 					int position, long id) {
-				Toast.makeText(MainActivity.this, "Delete "+list.get(position).toString(),Toast.LENGTH_SHORT).show();
-				Item item = list.get(position);
-				ItemListController.getItemList().removeItem(item);
+				AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
+				adb.setMessage("Delete "+list.get(position).toString()+"?");
+				adb.setCancelable(true);
+				final int finalPosition = position;
+				adb.setPositiveButton("Delete", new OnClickListener(){
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Item item = list.get(finalPosition);
+						ItemListController.getItemList().removeItem(item);
+					}
+				});
+				adb.setNegativeButton("Cancel", new OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+					}
+				});
+				adb.show();
 				return false;
 			}
 		});
