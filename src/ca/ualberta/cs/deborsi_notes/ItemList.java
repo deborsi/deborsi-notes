@@ -1,6 +1,5 @@
 package ca.ualberta.cs.deborsi_notes;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,7 +10,7 @@ public class ItemList implements Serializable {
 	 * ItemList Serialization ID
 	 */
 	private static final long serialVersionUID = 1L;
-	//private static final long serialVersionUID = 6673446047991058932L;
+	
 	protected ArrayList<Item>itemList = null;
 	protected transient ArrayList<Listener> listeners = null;
 	
@@ -27,7 +26,7 @@ public class ItemList implements Serializable {
 		return listeners;
 	}
 
-	public Collection<Item> getItems() {
+	public ArrayList<Item> getItems() {
 		return itemList;
 	}
 
@@ -46,16 +45,7 @@ public class ItemList implements Serializable {
 		itemList.remove(testItem);
 		notifyListeners();
 	}
-
-	public Item selectItem() throws EmptyItemListException {
-		int size = itemList.size();
-		if  (size <= 0){
-			throw new EmptyItemListException();
-		}
-		int index = (int) (itemList.size() * Math.random());
-		return itemList.get(index);
-	}
-
+	
 	public int size() {
 		return itemList.size();
 	}
@@ -70,6 +60,17 @@ public class ItemList implements Serializable {
 
 	public void removeListener(Listener l) {
 		getListeners().remove(l);		
+	}
+	
+	public void add(Item item) {
+		itemList.add(item);
+	}
+	public void remove(int i){
+		itemList.remove(i);
+	}
+	
+	public Item get(int i){
+		return itemList.get(i);
 	}
 
 }

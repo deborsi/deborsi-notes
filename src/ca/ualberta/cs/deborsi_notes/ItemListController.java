@@ -2,14 +2,14 @@ package ca.ualberta.cs.deborsi_notes;
 
 import java.io.IOException;
 
-public class ItemListController {
-	
+/*public class ItemListController {
+
 	// Lazy Singleton
 	private static ItemList itemList = null;
 	static public ItemList getItemList(){
 		if (itemList == null){
 			try {
-				itemList = ItemListManager.getManager().loadItemList();
+				//itemList = ItemListManager.getManager().loadItemList();
 				itemList.addListener(new Listener(){
 					@Override
 					public void update() {
@@ -39,12 +39,12 @@ public class ItemListController {
 		}	
 	}
 	
-	public Item selectItem() throws EmptyItemListException{
-		return getItemList().selectItem();
-	}
-	
 	public void addItem(Item item) {
 		getItemList().addItem(item);
 	}
-
+	
+	public void removeItem(Item item) {
+		getItemList().removeItem(item);
+	}
 }
+*/

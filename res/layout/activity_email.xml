@@ -22,7 +22,7 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/emailActiveButton"
         android:layout_marginTop="14dp"
-        android:text="EMAIL ALL ITEMS" />
+        android:text="@string/emailAllButton" />
 
     <Button
         android:id="@+id/emailActiveButton"
@@ -32,7 +32,7 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/emailArchivedButton"
         android:layout_marginTop="17dp"
-        android:text="EMAIL ACTIVE ITEMS" />
+        android:text="@string/emailActiveButton" />
 
     <Button
         android:id="@+id/emailArchivedButton"
@@ -42,6 +42,6 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/emailText"
         android:layout_marginTop="69dp"
-        android:text="EMAIL ARCHIVED ITEMS" />
+        android:text="@string/emailArchivedButton" />
 
 </RelativeLayout>

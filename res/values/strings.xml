@@ -3,8 +3,17 @@
 
     <string name="app_name">deborsi-notes</string>
     <string name="hello_world">Hello world!</string>
+    <string name="hintTxtItem">add a to-do item .... </string>
+    <string name="addButton">ADD</string>
+    <string name="archiveButton">ARCHIVE</string>
+    <string name="removeButton">REMOVE</string>
+    <string name="emailAllButton">EMAIL ALL ITEMS</string>
+    <string name="emailActiveButton">EMAIL ACTIVE ITEMS</string>
+    <string name="emailArchivedButton">EMAIL ARCHIVED ITEMS</string>
+    <string name="archiveRemoveButton">REMOVE</string>
+    <string name="unarchiveButton">UNARCHIVE</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_email">Email</string>
     <string name="title_activity_archive">Archive Folder</string>
-
+    
 </resources>

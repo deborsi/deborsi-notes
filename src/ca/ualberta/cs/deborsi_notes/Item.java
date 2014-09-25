@@ -8,36 +8,33 @@ public class Item implements Serializable {
 	 * Item Serialization ID
 	 */
 	private static final long serialVersionUID = -8540572367716383907L;
-	protected String itemName;
 	
+	protected String itemName;
+	private Boolean status;
+	
+	// constructor
 	public Item(String itemName) {
 		this.itemName = itemName;
+		this.status = false;
 	}
 
 	public String getItem() {
-		return this.itemName;
+		return itemName;
 	}
 	
 	public String toString(){
 		return getItem();
 	}
 	
-	public boolean equals (Object compareItem){
-		if (compareItem != null && 
-				compareItem.getClass() == this.getClass()){
-			return this.equals((Item)compareItem);
-		}else{
-			return false;
-		}
+	public Boolean getStatus(){
+		return status;
 	}
 	
-	public boolean equals(Item compareItem){
-		if(compareItem == null){
-			return false;
-		}
-		return getItem().equals(compareItem.getItem());
+	public void setItem(String itemName){
+		this.itemName = itemName;
 	}
-	public int hashCode(){
-		return ("Item:"+getItem()).hashCode();
+	
+	public void setStatus(Boolean status){
+		this.status = status;
 	}
 }

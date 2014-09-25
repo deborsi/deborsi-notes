@@ -13,7 +13,6 @@ public class EmailActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_email);
 		
-		ItemListManager.initManager(this.getApplicationContext());
 		
 	}
 

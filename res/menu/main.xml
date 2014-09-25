@@ -1,8 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="ca.ualberta.cs.deborsi_notes.MainActivity" >
-
-    <item android:id="@+id/emailMenuItem" android:title="Email" android:onClick="emailMenuFlash"></item><item android:id="@+id/emailOptionsMenuItem" android:title="Email Options" android:onClick="emailOptionsMenuFlash"></item><item android:id="@+id/archiveFolderMenuItem" android:title="Archive Folder" android:onClick="archiveMenuFlash"></item><item android:id="@+id/summaryMenuItem" android:title="Summary" android:onClick="summaryMenuFlash"></item>
+    tools:context="ca.ualberta.cs.deborsi_notes.MainActivity" ><item android:id="@+id/emailOptionsMenuItem" android:title="Email Options" android:onClick="emailOptionsMenuFlash"></item><item android:id="@+id/archiveFolderMenuItem" android:title="Archive Folder" android:onClick="archiveMenuFlash"></item><item android:id="@+id/summaryMenuItem" android:title="Summary" android:onClick="summaryMenuFlash"></item>
     
     
     

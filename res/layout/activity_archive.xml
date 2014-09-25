@@ -14,30 +14,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="50sp" />
 
-    <Button
-        android:id="@+id/archiveRemoveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="removeItemArchive"
-        android:text="REMOVE" />
-
-    <Button
-        android:id="@+id/unarchiveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/archiveRemoveButton"
-        android:onClick="unarchiveItemArchive"
-        android:text="UNARCHIVE" />
-
     <ListView
         android:id="@+id/archiveList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/archiveRemoveButton"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/archiveText" >
 

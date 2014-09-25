@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,48 +16,30 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:onClick="addItemMain"
-        android:text="ADD" />
+        android:text="@string/addButton" />
 
     <EditText
         android:id="@+id/addItemField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/addButton"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_toStartOf="@+id/addButton"
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
+        android:ems="10" 
+        android:inputType="text"
+        android:hint="@string/hintTxtItem" />
 
     <ListView
         android:id="@+id/itemList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/removeButton"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/addItemField" >
-
-    </ListView>
-
-    <Button
-        android:id="@+id/archiveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/removeButton"
-        android:onClick="archiveItemMain"
-        android:text="ARCHIVE" />
+        android:layout_below="@+id/addItemField"
+        android:choiceMode="multipleChoice" >
 
-    <Button
-        android:id="@+id/removeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/itemList"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="removeItemMain"
-        android:text="REMOVE" />
+	</ListView>
 
 </RelativeLayout>
