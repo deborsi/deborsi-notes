@@ -45,7 +45,7 @@ public class ItemList implements Serializable {
 	
 	public void removeItem(Item testItem) {
 		itemList.remove(testItem);
-		notifyListeners();
+		//notifyListeners();
 	}
 	
 	public int size() {

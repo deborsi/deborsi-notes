@@ -26,11 +26,13 @@ public class ArchiveActivity extends ItemListActivity {
 		
 		// set context to this
 		final Context context = this;
+		
+		// initialize managers to manage both the lists
+		activeManager = new ItemListManager();
+		archiveManager = new ItemListManager();
+		
 		ListView = (ListView) findViewById(R.id.archiveList);
 		
-		 // initialize managers to manage both the lists
-		activeManager = new ItemListManager();
-        archiveManager = new ItemListManager();
         try{
         	activeManager.loadApp(itemFile, context);
         	archiveManager.loadApp(archiveFile, context);
@@ -64,14 +66,16 @@ public class ArchiveActivity extends ItemListActivity {
             	archiveManager.saveApp(archiveFile, context);
             }
         });
-        setChecked(ListView);
+        setStatus(ListView);
 	}
 	
-	public void setChecked(ListView ListView) {
-		for (int i = ( ArchiveList.size() - 1 ); i >= 0; i--) { 
-			ListView.setItemChecked(i, (ArchiveList.getItemIndex(i).getStatus()) );
-		}	
-	}
+	public void setStatus(ListView listView){
+    	int i = (ArchiveList.size() - 1);
+    	while(i >= 0){
+    		listView.setItemChecked(i, (ArchiveList.getItemIndex(i).getStatus()));
+    		i--;
+    	}
+    }
 	
 	//---------------------------------------------------------------------------------
 	// Code for implementing the context menu was taken from:
@@ -100,14 +104,14 @@ public class ArchiveActivity extends ItemListActivity {
 			activeManager.saveApp(itemFile, this);
 			listAdapter.notifyDataSetChanged();
 			checkedItemPositions.clear();
-			setChecked(ListView);
+			setStatus(ListView);
 		}
 		else if (item.getTitle() == "REMOVE") {
 	    	ArchiveList.remove(index);
 			archiveManager.saveApp(archiveFile, this);
             listAdapter.notifyDataSetChanged();
             checkedItemPositions.clear();
-            setChecked(ListView);
+            setStatus(ListView);
 	    } 
 		else {
 	        return false;

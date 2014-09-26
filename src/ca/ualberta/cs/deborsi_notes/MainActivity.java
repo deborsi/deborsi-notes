@@ -53,12 +53,13 @@ public class MainActivity extends ItemListActivity {
     	// set context to this
     	final Context context = this;
     	
+    	// initialize managers to manage both the lists
+        activeManager = new ItemListManager();
+        archiveManager = new ItemListManager();
+    	
     	Button addButton = (Button)findViewById(R.id.addButton);
         ListView = (ListView) findViewById(R.id.itemList);
         
-        // initialize managers to manage both the lists
-        activeManager = new ItemListManager();
-        archiveManager = new ItemListManager();
         try{
         	activeManager.loadApp(itemFile, context);
         	archiveManager.loadApp(archiveFile, context);
@@ -115,13 +116,15 @@ public class MainActivity extends ItemListActivity {
 				activeManager.saveApp(itemFile, context);
 			}
 		});
-        setChecked(ListView);
+        setStatus(ListView);
     }
     
-    public void setChecked(ListView listView){
-    	for (int i = (ActiveList.size() - 1) ; i >= 0 ; i--){
+    public void setStatus(ListView listView){
+    	int i = (ActiveList.size() - 1);
+    	while(i >= 0){
     		listView.setItemChecked(i, (ActiveList.getItemIndex(i).getStatus()));
-    		}
+    		i--;
+    	}
     }
  
   //---------------------------------------------------------------------------------
@@ -152,14 +155,14 @@ public class MainActivity extends ItemListActivity {
     	        archiveManager.saveApp(archiveFile, this);
     	        listAdapter.notifyDataSetChanged();
     	        checkedItemPositions.clear();
-    	        setChecked(ListView);
+    	        setStatus(ListView);
     		}
     		else if (item.getTitle() == "REMOVE"){
     			ActiveList.remove(index);
     			activeManager.saveApp(itemFile, this);
     			listAdapter.notifyDataSetChanged();
     			checkedItemPositions.clear();
-    			setChecked(ListView);
+    			setStatus(ListView);
     		}
     		else{
     			return false;
