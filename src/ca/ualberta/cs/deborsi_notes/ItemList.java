@@ -2,7 +2,6 @@ package ca.ualberta.cs.deborsi_notes;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class ItemList implements Serializable {
 	
@@ -14,6 +13,7 @@ public class ItemList implements Serializable {
 	protected ArrayList<Item>itemList = null;
 	protected transient ArrayList<Listener> listeners = null;
 	
+	// constructor for type ItemList
 	public ItemList(){
 		itemList = new ArrayList<Item>();
 		listeners = new ArrayList<Listener>();
@@ -23,7 +23,7 @@ public class ItemList implements Serializable {
 		if (listeners == null){
 			listeners = new ArrayList<Listener>();
 		}
-		return listeners;
+	return listeners;
 	}
 
 	public ArrayList<Item> getItems() {
@@ -50,27 +50,15 @@ public class ItemList implements Serializable {
 		return itemList.size();
 	}
 	
-	public boolean contains(Item testItem) {
-		return itemList.contains(testItem);
-	}
-
-	public void addListener(Listener l) {
-		getListeners().add(l);
-	}
-
-	public void removeListener(Listener l) {
-		getListeners().remove(l);		
-	}
-	
 	public void add(Item item) {
 		itemList.add(item);
 	}
+	
 	public void remove(int i){
 		itemList.remove(i);
 	}
 	
-	public Item get(int i){
+	public Item getItemIndex(int i){
 		return itemList.get(i);
 	}
-
 }

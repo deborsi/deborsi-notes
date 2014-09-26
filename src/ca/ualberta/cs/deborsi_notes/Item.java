@@ -12,7 +12,7 @@ public class Item implements Serializable {
 	protected String itemName;
 	private Boolean status;
 	
-	// constructor
+	// constructor for type Item
 	public Item(String itemName) {
 		this.itemName = itemName;
 		this.status = false;
@@ -29,11 +29,7 @@ public class Item implements Serializable {
 	public Boolean getStatus(){
 		return status;
 	}
-	
-	public void setItem(String itemName){
-		this.itemName = itemName;
-	}
-	
+
 	public void setStatus(Boolean status){
 		this.status = status;
 	}
