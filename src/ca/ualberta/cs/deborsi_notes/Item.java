@@ -2,6 +2,8 @@ package ca.ualberta.cs.deborsi_notes;
 
 import java.io.Serializable;
 
+// Implements an item of type Item to be put on the list
+
 public class Item implements Serializable {
 	
 	/**

@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+// Display and manage the Email Functions
+// This functionality has not been implemented yet
+
 public class EmailActivity extends Activity {
 
 	@Override

@@ -9,6 +9,8 @@ import java.io.ObjectOutputStream;
 import android.content.Context;
 import android.util.SparseBooleanArray;
 
+// Manages saving, loading and check box updates 
+
 public class ItemListManager {
 	
 	// lazy singleton

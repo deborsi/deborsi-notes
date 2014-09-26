@@ -14,6 +14,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
+// Display and manage the Archive List 
+// The Archive List is unstable to OnClick events
+
 public class ArchiveActivity extends ItemListActivity {
 	
 	@Override

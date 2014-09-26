@@ -1,5 +1,6 @@
 package ca.ualberta.cs.deborsi_notes;
 
+// Empty List Exception
 public class EmptyItemListException extends Exception {
 
 	/**

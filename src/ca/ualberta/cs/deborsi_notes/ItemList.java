@@ -3,6 +3,8 @@ package ca.ualberta.cs.deborsi_notes;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+// Implements a list of item of type Item 
+
 public class ItemList implements Serializable {
 	
 	/**
